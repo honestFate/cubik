@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:02:51 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 02:25:21 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/03 03:26:03 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ void	check_wall_hit(t_pos *info, t_mlx *mlx)
 			info->map_y += info->step_y;
 			info->side = 1;
 		}
-		printf("info->map_x - %d, info->map_y - %d\n", info->map_x, info->map_y);
-		printf("mlx->map[info->map_x][info->map_y] - %c\n", mlx->map[info->map_x][info->map_y]);
-		if (mlx->map[info->map_x][info->map_y] > 0)
+		if (mlx->map[info->map_x][info->map_y] > '0')
 			info->hit = 1;
 	}
 }

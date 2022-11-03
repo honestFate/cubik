@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 07:44:03 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 02:23:47 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/03 03:35:17 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,18 +115,20 @@ int	init_pos(t_mlx *mlx)
 		j = 0;
 		while (mlx->map[i][j])
 		{
+			if (is_player(mlx->map[i][j]))
+			{
+				mlx->info->pos_x = 14.5;
+				mlx->info->pos_y = 27.5;
+				mlx->map[i][j] = '0';
+				ft_log("inited pos");
+				return (CUB_OK);
+			}
 			if (mlx->map[i][j] == 'W')
 				start_turn(mlx, mlx->info, 4.75);
 			else if (mlx->map[i][j] == 'S')
 				start_turn(mlx, mlx->info, 3.15);
 			else if (mlx->map[i][j] == 'E')
 				start_turn(mlx, mlx->info, 1.55);
-			if (is_player(mlx->map[i][j]))
-			{
-				mlx->info->pos_x = j * BLOCK_SIZE + BLOCK_SIZE / 2;
-				mlx->info->pos_y = i * BLOCK_SIZE + BLOCK_SIZE / 2;
-				return (CUB_OK);
-			}
 			++j;
 		}
 		++i;
@@ -153,14 +155,13 @@ int	main(int argc, char **argv)
 		clear_cub(mlx);
 		return (print_error(err), CUB_ERR);
 	}
-	
-	//
-	//get_path(mlx);
 	set_map_size(mlx);
-	//init_pos это копия init_playes, но без возможности
-	//нахождения изначального направления игрока
+	ft_log("init zalupa");
+	ft_log("init zalupa");
+	ft_log("init zalupa");
 	if (init_pos(mlx))
-	{	
+	{
+		ft_log("init pos failed");	
 		clear_cub(mlx);
 		return (print_error(CUB_ERR), CUB_ERR);
 	}
