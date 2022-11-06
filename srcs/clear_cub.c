@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clear_cub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtrinida <gtrinida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 23:42:29 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 01:39:02 by gtrinida         ###   ########.fr       */
+/*   Updated: 2022/11/06 14:46:35 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ void	clear_cub(t_mlx *mlx)
 	free(mlx->map_path);
 	free(mlx->info);
 	free(mlx);
-	exit(0);
+	//exit(0);
 }

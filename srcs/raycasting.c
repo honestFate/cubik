@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:02:51 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 03:26:03 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/06 15:01:26 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	check_steps(t_pos *info)
 
 void	check_wall_hit(t_pos *info, t_mlx *mlx)
 {
+	printf("%d %d\n", info->map_x, info->map_y);
 	while (info->hit == 0)
 	{
 		if (info->sidedist_x < info->sidedist_y)
@@ -56,6 +57,7 @@ void	check_wall_hit(t_pos *info, t_mlx *mlx)
 			info->map_y += info->step_y;
 			info->side = 1;
 		}
+		printf("%d %d\n", info->map_x, info->map_y);
 		if (mlx->map[info->map_x][info->map_y] > '0')
 			info->hit = 1;
 	}
@@ -79,5 +81,7 @@ void	init_ray(t_pos *info, t_mlx* mlx, int x)
 		info->deltadist_y = fabs(1 / info->raydir_y);
 	info->hit = 0;
 	check_steps(info);
+	ft_log("check steps");
 	check_wall_hit(info, mlx);
+	ft_log("check wall hit");
 }

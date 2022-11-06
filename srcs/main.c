@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 07:44:03 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 03:35:17 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/06 15:05:42 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,13 @@ int	init_pos(t_mlx *mlx)
 	return (CUB_ERR);
 }
 
+void	print_map(char **map)
+{
+	int i = 0;
+	while (map[i++])
+		printf("%d\t|%s\n", i - 1, map[i - 1]);
+}
+
 int	main(int argc, char **argv)
 {
 	int err;
@@ -159,6 +166,7 @@ int	main(int argc, char **argv)
 	ft_log("init zalupa");
 	ft_log("init zalupa");
 	ft_log("init zalupa");
+	print_map(mlx->map);
 	if (init_pos(mlx))
 	{
 		ft_log("init pos failed");	

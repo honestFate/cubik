@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtrinida <gtrinida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 22:42:07 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/02 23:48:54 by gtrinida         ###   ########.fr       */
+/*   Updated: 2022/11/06 14:57:50 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sky_and_floor(t_mlx *mlx)
 		height = 0;
 		x++;
 	}
+	printf("Vishli\n");
 }
 
 void	exit_arg()

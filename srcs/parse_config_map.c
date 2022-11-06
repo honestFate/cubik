@@ -15,15 +15,15 @@ int	is_close_line(char *line, int j)
 	len = ft_strlen(line);
 	if (len <= j)
 		return (CUB_ERR);
-	if (!is_inner_object(line[j - 1])
-		&& line[j - 1] != '1')
-		return (CUB_ERR);
+	// if (!is_inner_object(line[j - 1])
+	// 	&& line[j - 1] != '1')
+	// 	return (CUB_ERR);
 	if (!is_inner_object(line[j])
 		&& line[j] != '1')
 		return (CUB_ERR);
-	if (!is_inner_object(line[j + 1])
-		&& line[j + 1] != '1')
-			return (CUB_ERR);
+	// if (!is_inner_object(line[j + 1])
+	// 	&& line[j + 1] != '1')
+	// 		return (CUB_ERR);
 	return (CUB_OK);
 }
 
@@ -36,6 +36,7 @@ int	is_closed(char **map)
 	/*if (is_inner_object(map[0][0])
 		&& (!map[0][1] || !map[1]))
 		return (UNCLOSED_MAP);*/
+	printf("start checking if map is closed\n");
 	while (map[++i])
 	{
 		j = -1;
@@ -73,7 +74,10 @@ int map_chceck_line(char *line, int *player_exist)
 				++(*player_exist);
 		}
 		else if (!is_map_object(line[j]))
+		{
+			printf("j = %d, line = %s\n", j, line);
 			return (UNKNOW_SYM);
+		}
 		++j;
 	}
 	return (CUB_OK);
@@ -88,6 +92,7 @@ int	map_check_valid_sym(t_config *cfg, int start_map)
 	while (cfg->config_txt[start_map])
 	{
 		err = map_chceck_line(cfg->config_txt[start_map], &player_exist);
+		printf("sym in line - %d\n", start_map);
 		if (err)
 			return (err);
 		++start_map;
@@ -125,9 +130,15 @@ int	parse_map(t_mlx *cub, t_config *cfg, int end_of_config)
 
 	err = map_check_valid_sym(cfg, end_of_config);
 	if (err)
+	{
+		printf("WRONG SYM\n");
 		return (err);
+	}
 	if (copy_map(cub, cfg, end_of_config))
+	{
+		printf("COPY FAILED\n");
 		return (CUB_ERR);
+	}
 	err = is_closed(cub->map);
 	return (err);
 }

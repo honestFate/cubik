@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 07:44:11 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/03 02:51:31 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/06 14:58:45 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,11 @@ void	gameloop(t_mlx *mlx)
 	while(x < screenWidth)
 	{
 		init_ray(mlx->info, mlx, x);
+		printf("init ray\n");
 		ray_calculate(mlx->info, mlx);
+		printf("ray calculate\n");
 		textured_raycaster(mlx, x);
+		printf("textured raycaster\n");
 		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img, 0, 0);
